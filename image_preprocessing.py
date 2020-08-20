@@ -22,7 +22,7 @@ def locate_edges(image):
     hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
     # Specifying Hue Range for Color Blue
-    lower_bound = np.array([[60, 40, 60]])
+    lower_bound = np.array([[30, 40, 0]])
     upper_bound = np.array([150, 255, 255])
 
     mask = cv2.inRange(hsv, lower_bound, upper_bound)
@@ -65,6 +65,7 @@ def locate_line_segments(isolated_edges):
 
 
 def generate_lanes(image, segments):
+
     lanes = []
 
     h, w, _ = image.shape
@@ -87,7 +88,7 @@ def generate_lanes(image, segments):
             if x0 == x1:
                 continue
 
-            poly_fit = np.polyfit((x0, x1), (y0, y1))
+            poly_fit = np.polyfit((x0, x1), (y0, y1), 1)
             mx = poly_fit[0]
             b = poly_fit[1]
 
@@ -97,7 +98,7 @@ def generate_lanes(image, segments):
                     left_lane_segments.append((mx, b))
 
             else:
-                if x0 > left_lane_boundary and x1 > right_lane_boundary:
+                if x0 > right_lane_boundary and x1 > right_lane_boundary:
                     right_lane_segments.append((mx, b))
 
     # Determine Average Slope of Left Lane Lines Segments
@@ -130,6 +131,11 @@ def generate_endpoints(image, line):
 
 
 def locate_lanes(image):
+    """
+
+    :param image:
+    :return:
+    """
     edges = locate_edges(image)
     display_image("Image Edges", image)
 
@@ -140,11 +146,11 @@ def locate_lanes(image):
     lane_line_segment_img = show_lane_lines(image, lane_line_segments)
     display_image("Lane Line Segments", lane_line_segment_img)
 
-    driving_lanes = locate_lanes(lane_line_segments)
+    driving_lanes = generate_lanes(image, lane_line_segments)
     driving_lanes_img = show_lane_lines(image, driving_lanes)
     display_image("Lane Lines", driving_lanes_img)
 
-    return driving_lanes
+    return driving_lanes, driving_lanes_img
 
 
 def show_lane_lines(image, lines, color=(0, 255, 0), width=2):

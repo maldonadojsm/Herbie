@@ -77,7 +77,7 @@ class LaneKeepAssistSystem(object):
         if len(lanes) == 1:
 
             x0, _, x1, _ = lanes[0][0]
-            x_offset = x1 - x1
+            x_offset = x0 - x1
 
         # Two Lanes Have Been Detected
         else:

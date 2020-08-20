@@ -97,6 +97,7 @@ class Herbie(object):
         """
 
         logging.info('Starting to drive at speed %s...' % speed)
+        self.rear_wheels.forward()
         self.rear_wheels.speed = speed
         i = 0
         while self.camera.isOpened():
