@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 # title           :herbie.py
-# description     :Enter Description Here
+# description     :Herbie Class
 # author          :Sebastian Maldonado
 # date            :8/18/2020
 # version         :0.0
