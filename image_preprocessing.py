@@ -110,7 +110,7 @@ def generate_lanes(image, segments):
         lanes.append(generate_endpoints(image, left_lane_avg))
 
     # Same for Right Lane
-    right_lane_avg = np.averge(right_lane_segments, axis=0)
+    right_lane_avg = np.average(right_lane_segments, axis=0)
 
     if len(right_lane_avg) > 0:
         lanes.append(generate_endpoints(image, right_lane_avg))
