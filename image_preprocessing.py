@@ -22,7 +22,7 @@ def locate_edges(image):
     hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
     # Specifying Hue Range for Color Blue
-    lower_bound = np.array([[30, 40, 0]])
+    lower_bound = np.array([30, 40, 0])
     upper_bound = np.array([150, 255, 255])
 
     mask = cv2.inRange(hsv, lower_bound, upper_bound)

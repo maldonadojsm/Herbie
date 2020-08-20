@@ -11,11 +11,13 @@
 # =================================================================================================================
 
 from image_preprocessing import *
+import logging
 
 
 class LaneKeepAssistSystem(object):
 
     def __init__(self, car=None):
+        logging.info("Configuring Lane Keep Assist System")
         self.current_steering_angle = 90
         self.car = car
 
@@ -58,7 +60,7 @@ class LaneKeepAssistSystem(object):
         # Stabilize steering if different between current and new steering angle exceeds
         # accepted driving angle deviation
         if abs(steering_deviation) > max_deviation_angle:
-            stable_steering_angle = int(current_steering_angle + max_deviation_angle / abs(steering_deviation))
+            stable_steering_angle = int(current_steering_angle + max_deviation_angle * steering_deviation/ abs(steering_deviation))
 
         else:
             stable_steering_angle = new_steering_angle
@@ -76,7 +78,7 @@ class LaneKeepAssistSystem(object):
         if len(lanes) == 1:
 
             x0, _, x1, _ = lanes[0][0]
-            x_offset = x0 - x1
+            x_offset = x1 - x0
 
         # Two Lanes Have Been Detected
         else:
