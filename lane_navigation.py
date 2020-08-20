@@ -1,6 +1,6 @@
 # !/usr/bin/env python
 # title           :lane_navigation.py
-# description     :Enter Description Here
+# description     :Lane Navigation system that allows Herbie to drives autonomously while within two lanes.
 # author          :Sebastian Maldonado
 # date            :8/18/2020
 # version         :0.0
