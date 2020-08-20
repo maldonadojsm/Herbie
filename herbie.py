@@ -32,20 +32,20 @@ class Herbie(object):
         picar.setup()
 
         logging.debug('Configuring Camera')
-        self.camera = cv2.VideoCapture(-1)
+        self.camera = cv2.VideoCapture(0)
         self.camera.set(3, self.__SCREEN_WIDTH)
         self.camera.set(4, self.__SCREEN_HEIGHT)
 
-        self.pan_servo = picar.Servo.Servo(1)
+        self.pan_servo = picar.Servo.Servo(1, bus_number=1)
         self.pan_servo.offset = -30  # calibrate servo to center
         self.pan_servo.write(90)
 
-        self.tilt_servo = picar.Servo.Servo(2)
+        self.tilt_servo = picar.Servo.Servo(1, bus_number=1)
         self.tilt_servo.offset = 20  # calibrate servo to center
         self.tilt_servo.write(90)
 
         logging.debug('Calibrating Rear Wheels')
-        self.rear_wheels = picar.rear_wheels.Back_Wheels()
+        self.rear_wheels = picar.back_wheels.Back_Wheels()
         self.rear_wheels.speed = 0  # Speed Range is 0 (stop) - 100 (fastest)
 
         logging.debug('Calibrating Front Wheels')
@@ -53,7 +53,7 @@ class Herbie(object):
         self.front_wheels.turning_offset = -25  # calibrate servo to center
         self.front_wheels.turn(90)  # Steering Range is 45 (left) - 90 (center) - 135 (right)
 
-        self.lane_follower = LaneKeepAssistSystem(self)
+        self.lane_follower = LaneKeepAssistSystem()
 
         self.fourcc = cv2.VideoWriter_fourcc(*'XVID')
         datestr = datetime.datetime.now().strftime("%y%m%d_%H%M%S")
