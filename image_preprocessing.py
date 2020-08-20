@@ -68,6 +68,9 @@ def generate_lanes(image, segments):
 
     lanes = []
 
+    if segments is None:
+        return lanes
+
     h, w, _ = image.shape
 
     right_lane_segments = []
@@ -160,7 +163,7 @@ def show_lane_lines(image, lines, color=(0, 255, 0), width=2):
             for x0, x1, y0, y1 in l:
                 cv2.line(lane_image, (x0, y0), (x1, y1), color, width)
 
-    alpha = 0.7
+    alpha = 0.8
     beta = 1
     gamma = 1
     lane_image = cv2.addWeighted(image, alpha, lane_image, beta, gamma)
