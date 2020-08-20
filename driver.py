@@ -1,5 +1,4 @@
 from herbie import Herbie
-import sys
 
 
 def main():
