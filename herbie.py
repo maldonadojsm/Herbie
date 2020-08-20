@@ -20,13 +20,17 @@ _DISPLAY_IMAGE = True
 
 
 class Herbie(object):
-
+    """
+    This Python Class initializes and configures the PiCar servos before driving using the Lane Keep Assistant System
+    """
     __STARTING_SPEED = 0
     __SCREEN_WIDTH = 320
     __SCREEN_HEIGHT = 240
 
     def __init__(self):
-        """ Init camera and wheels"""
+        """
+        Starts and calibrates PiCar's servos
+        """
         logging.info('Configuring Herbie')
 
         picar.setup()
