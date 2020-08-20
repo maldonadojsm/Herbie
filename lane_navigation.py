@@ -15,10 +15,9 @@ from image_preprocessing import *
 
 class LaneKeepAssistSystem(object):
 
-    def __int__(self, car=None):
-
+    def __init__(self, car=None):
+        self.current_steering_angle = 90
         self.car = car
-        self.steering_angle = 90
 
     def drive_within_lanes(self, image):
 
@@ -35,12 +34,12 @@ class LaneKeepAssistSystem(object):
             return image
 
         new_steer_angle = self.calculate_steering_angle(image, lanes)
-        self.steering_angle = self.stabilize(self.steering_angle, new_steer_angle, len(lanes))
+        self.current_steering_angle = self.stabilize(self.current_steering_angle, new_steer_angle, len(lanes))
 
         if self.car is not None:
-            self.car.front_wheels.turn(self.steering_angle)
+            self.car.front_wheels.turn(self.current_steering_angle)
 
-        heading_image = generate_heading(image, self.steering_angle)
+        heading_image = generate_heading(image, self.current_steering_angle)
         display_image("Vehicle Heading", heading_image)
 
         return heading_image
