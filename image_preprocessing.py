@@ -189,7 +189,7 @@ def show_lane_lines(image, lines, color=(0, 255, 0), width=10):
     lane_image = np.zeros_like(image)
     if lines is not None:
         for l in lines:
-            for x0, x1, y0, y1 in l:
+            for x0, y0, x1, y1 in l:
                 cv2.line(lane_image, (x0, y0), (x1, y1), color, width)
 
     alpha = 0.8
