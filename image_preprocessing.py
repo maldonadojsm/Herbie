@@ -50,7 +50,7 @@ def isolate_lane_edges(edges):
     mask = np.zeros_like(edges)
 
     # Isolate Bottom Half of Screen (Where driving lanes are located)
-    polygon = np.array([[(0, h * 0.5), (w, h * 0.5), (w, h), (0, h), ]], np.int32)
+    polygon = np.array([[(0, h * 1 / 2), (w, h * 1 / 2), (w, h), (0, h), ]], np.int32)
     # Fill Mask With Polygon
     cv2.fillPoly(mask, polygon, 255)
 
@@ -146,7 +146,7 @@ def generate_endpoints(image, line):
     mx, b = line
 
     y0 = h
-    y1 = int(y0 * 0.5)
+    y1 = int(y0 * 1 / 2)
     x0 = max(-w, min(2 * w, int((y0 - b) / mx)))
     x1 = max(-w, min(2 * w, int((y1 - b) / mx)))
 
