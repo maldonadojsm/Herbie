@@ -177,7 +177,7 @@ def locate_lanes(image):
     return driving_lanes, driving_lanes_img
 
 
-def show_lane_lines(image, lines, color=(0, 255, 0), width=2):
+def show_lane_lines(image, lines, color=(0, 255, 0), width=10):
     """
     Displays Lanes
     :param image: Video frame retrieved from PiCamera
