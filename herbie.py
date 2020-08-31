@@ -36,15 +36,15 @@ class Herbie(object):
         picar.setup()
 
         logging.debug('Configuring Camera')
-        self.camera = cv2.VideoCapture(0)
+        self.camera = cv2.VideoCapture(-1)
         self.camera.set(3, self.__SCREEN_WIDTH)
         self.camera.set(4, self.__SCREEN_HEIGHT)
 
-        self.pan_servo = picar.Servo.Servo(1, bus_number=1)
+        self.pan_servo = picar.Servo.Servo(1)
         self.pan_servo.offset = -30  # calibrate servo to center
         self.pan_servo.write(90)
 
-        self.tilt_servo = picar.Servo.Servo(1, bus_number=1)
+        self.tilt_servo = picar.Servo.Servo(2)
         self.tilt_servo.offset = 20  # calibrate servo to center
         self.tilt_servo.write(90)
 
