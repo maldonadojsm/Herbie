@@ -50,7 +50,7 @@ def isolate_lane_edges(edges):
     mask = np.zeros_like(edges)
 
     # Isolate Bottom Half of Screen (Where driving lanes are located)
-    polygon = np.array([[(0, h * 1 / 2), (w, h * 1 / 2), (w, h), (0, h), ]], np.int32)
+    polygon = np.array([[(0, h * 1 / 2), (w, h * 1 / 2), (w, h), (0, h)]], np.int32)
     # Fill Mask With Polygon
     cv2.fillPoly(mask, polygon, 255)
 
@@ -95,7 +95,7 @@ def generate_lanes(image, segments):
     right_lane_segments = []
     left_lane_segments = []
 
-    boundary = 1 / 3
+    boundary = 1/3
 
     left_lane_boundary = w * (1 - boundary)
     right_lane_boundary = w * boundary
@@ -125,11 +125,11 @@ def generate_lanes(image, segments):
     # Determine Average Slope of Left Lane Lines Segments
     left_lane_avg = np.average(left_lane_segments, axis=0)
     # Extract and store endpoints of line segments of left lane
-    if len(left_lane_avg) > 0:
+    if len(left_lane_segments) > 0:
         lanes.append(generate_endpoints(image, left_lane_avg))
     # Same for Right Lane
     right_lane_avg = np.average(right_lane_segments, axis=0)
-    if len(right_lane_avg) > 0:
+    if len(right_lane_segments) > 0:
         lanes.append(generate_endpoints(image, right_lane_avg))
 
     return lanes
