@@ -57,7 +57,7 @@ class Herbie(object):
         self.front_wheels.turning_offset = -25  # calibrate servo to center
         self.front_wheels.turn(90)  # Steering Range is 45 (left) - 90 (center) - 135 (right)
 
-        self.lane_follower = LaneKeepAssistSystem()
+        self.lane_follower = LaneKeepAssistSystem(self)
 
         self.fourcc = cv2.VideoWriter_fourcc(*'XVID')
         datestr = datetime.datetime.now().strftime("%y%m%d_%H%M%S")
@@ -110,6 +110,7 @@ class Herbie(object):
             i += 1
             self.video_orig.write(image_lane)
 
+            show_image("TEST:", image_objs)
             image_lane = self.drive_inside_lanes(image_lane)
             self.video_lane.write(image_lane)
             show_image('Lane Lines', image_lane)
