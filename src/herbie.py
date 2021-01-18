@@ -15,6 +15,7 @@ import picar
 import cv2
 import datetime
 from lane_navigation import *
+from dl_lkas import *
 
 _DISPLAY_IMAGE = True
 
@@ -58,6 +59,7 @@ class Herbie(object):
         self.front_wheels.turn(90)  # Steering Range is 45 (left) - 90 (center) - 135 (right)
 
         self.lane_follower = LaneKeepAssistSystem(self)
+        #self.lane_follower = DeepLearningLKAS(self)
 
         self.fourcc = cv2.VideoWriter_fourcc(*'XVID')
         datestr = datetime.datetime.now().strftime("%y%m%d_%H%M%S")
