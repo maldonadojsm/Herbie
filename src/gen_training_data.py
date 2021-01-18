@@ -3,6 +3,9 @@ import sys
 from lane_navigation import LaneKeepAssistSystem
 
 def extract_frame_and_steering_angle(file):
+    """
+    Script creates training data by breaking down a .avi video file into frames and then determining the steering angle of a given frame using the hand-coded LKAS system exclusively written in OpenCV. Saves result as .png file with label (steering angle) as part of the file nname: [filename]_[frame no.]_[label].png
+    """
 
     lane_tracker = LaneKeepAssistSystem()
     video_stream  = cv2.VideoCapture(file)
