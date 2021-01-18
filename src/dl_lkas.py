@@ -53,7 +53,7 @@ class DeepLearningLKAS(object):
         """
 
         h, _, _ = frame.shape
-        frame = frame[int(h/2),: ,:, :]
+        frame = frame[int(h/2),: ,:]
         frame = cv2.cvtColor(frame, cv2.COLOR_BGR2YUV)
         frame = cv2.GaussianBlur(frame, (3,3), 0)
         frame = cv2.resize(frame, (200, 66))
