@@ -7,6 +7,9 @@ import logging
 
 
 class DeepLearningLKAS(object):
+    """
+    A Lane Keep Assist System powered by Deep Learning. Inspired by Nvidia End-to-End ML architecture for self-driving cars.
+    """
     def __init__(self, car=None, ml_model_path='/home/pi/Herbie/ml_models/lane_keep_assist_system/trained_models/DL_LKAS_FINAL.h5'):
 
         self.current_steering_angle = 90
