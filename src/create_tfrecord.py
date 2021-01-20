@@ -120,7 +120,7 @@ def create_tf_example(label_group, file_path, label_map):
 
 
 def main(_):
-    tf_writer = tf.python_io.TFRecordWriter(FLAGS.output)
+    tf_writer = tf.compat.v1.python_io.TFRecordWriter(FLAGS.output)
     file_path = os.path.join(os.getcwd(), FLAGS.image_path)
     dataset = pd.read_csv(FLAGS.csv)
 
