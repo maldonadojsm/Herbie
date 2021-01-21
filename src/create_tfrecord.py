@@ -57,7 +57,7 @@ def create_tf_example(label_group, file_path, label_map):
     """
     Creates TF record using generated label map,  
     """
-    with tf.gfile.GFile(
+    with tf.compat.v1.gfile.GFile(
             os.path.join(file_path, "{}".format(label_group.filename)),
             "rb") as file_id:
         encoded_jpg = file_id.read()
