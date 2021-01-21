@@ -140,8 +140,8 @@ def main(_):
         tf_writer.write(tf_example.SerializeToString())
 
     tf_writer.close()
-    output_path = os.path.join(os.getcwd(), FLAGS.output_path)
-    print("TFRecords Successfully Created In: {}".format(output_path))
+    output_path = os.path.join(os.getcwd(), FLAGS.output)
+    print("TFRecords Successfully Created In: {}".format(output))
 
 
 if __name__ == "__main__":
