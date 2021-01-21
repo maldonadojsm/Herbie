@@ -66,7 +66,7 @@ def create_tf_example(label_group, file_path, label_map):
     image = Image.open(encoded_jpg_io)
     width, height = image.size
 
-    filename = label_group.file_name.encode("utf8")
+    filename = label_group.filename.encode("utf8")
     img_format = b"jpg"
     xmins = []
     xmaxs = []
