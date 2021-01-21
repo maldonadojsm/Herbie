@@ -45,7 +45,7 @@ def split(df, group):
     """
     Organizes label map by groups
     """
-    data = namedtuple("data", ["file_name", "object"])
+    data = namedtuple("data", ["filename", "object"])
     gb = df.groupby(group)
     return [
         data(filename, gb.get_group(x))
@@ -134,7 +134,7 @@ def main(_):
         label_map[j.get("name")] = j.get("id")
 
     # Organize labels by group
-    grouped_labels = split(dataset, "file_name")
+    grouped_labels = split(dataset, "filename")
     for i in grouped_labels:
         tf_example = create_tf_example(i, file_path, label_map)
         tf_writer.write(tf_example.SerializeToString())
