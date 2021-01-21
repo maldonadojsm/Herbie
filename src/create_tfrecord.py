@@ -141,7 +141,7 @@ def main(_):
 
     tf_writer.close()
     output_path = os.path.join(os.getcwd(), FLAGS.output)
-    print("TFRecords Successfully Created In: {}".format(output))
+    print("TFRecords Successfully Created In: {}".format(output_path))
 
 
 if __name__ == "__main__":
