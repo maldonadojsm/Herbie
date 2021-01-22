@@ -5,12 +5,19 @@ The concept of self-driving cars has been quite popular over the past 5 years. C
 Project Structure:
 
 1. Src:
+
   -> DeepLearningLKAS.ipynb: Deep Learning approach at building a LKAS using Tensorflow and Keras.
+  
   -> DeeplearningObkectDetection.ipynb: Applying transfer learning by harnessing the power of the Tensorflow Object Detectopm API
+  
   -> dl_lkas.py: Logic needed by Herbie to run the Deep Learning LKAS model.
+  
   -> driver.py: 
+  
   -> herbie.py: Program entry point and driver of entire Herbie system.
+  
   -> image_processing.py: Image processing methods needed to extract lane and headlines lines from Herbie's camera.
+  
   -> lane_navigation.py: Logic that powers the LKAS system in Herbie
 
 
