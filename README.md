@@ -4,7 +4,7 @@ The concept of self-driving cars has been quite popular over the past 5 years. C
 
 Herbie's LKAS System (OpenCV):
 
-![Alt Text](https://giphy.com/gifs/dhfPAU7ZwTzBd3f3RO)
+![Alt Text](https://media.giphy.com/media/dhfPAU7ZwTzBd3f3RO/giphy.gif)
 
 Project Structure:
 
@@ -17,5 +17,8 @@ Project Structure:
 	6. **lane_navigation.py:** Logic that powers the LKAS system in Herbie
 2. Ml_models:
 	
+UPDATES:
 
+1. LKAS System running solely using OpenCV complete.
+2. Debugging DL LKAS System and Object Detection System
 
