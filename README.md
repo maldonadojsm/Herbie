@@ -10,7 +10,7 @@ The concept of self-driving cars has been quite popular over the past 5 years. C
 
 **Herbie Driving On Its Own:**
 
-[![Herbi Driving Demo (LKAS - OpenCV](https://youtu.be/ldZKcXQZlgs/1.jpg)](https://youtu.be/ldZKcXQZlgs)
+[!(https://youtu.be/ldZKcXQZlgs/0.jpg)](https://youtu.be/ldZKcXQZlgs)
 
 **Project Structure:**
 
