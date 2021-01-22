@@ -4,7 +4,7 @@ The concept of self-driving cars has been quite popular over the past 5 years. C
 
 Herbie's LKAS System (OpenCV):
 
-![Alt Text](https://media.giphy.com/media/dhfPAU7ZwTzBd3f3RO/giphy.gif)
+![](herbie_lkas_opencv.gif)
 
 Project Structure:
 
