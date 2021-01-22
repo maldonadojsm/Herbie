@@ -9,7 +9,7 @@ Project Structure:
   	2. **DeeplearningObkectDetection.ipynb:** Applying transfer learning by harnessing the power of the Tensorflow Object Detection API
   	3. **dl_lkas.py:** Logic needed by Herbie to run the Deep Learning LKAS model.
 	4. **herbie.py:** Configures and intilizes PiCar servos and main entry point for driving system.
-  	5. **image_processing.py:** Image processing methods needed to extract lane and headlines lines from Herbie's camera.
+  	5. **image_processing.py:** Image processing needed to extract lane and headlines lines from Herbie's camera by using OpenCV.
 	6. **lane_navigation.py:** Logic that powers the LKAS system in Herbie
 2. Ml_models:
 	
